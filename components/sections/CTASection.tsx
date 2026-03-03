@@ -10,15 +10,30 @@ export default function CTASection() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!email) return
     setLoading(true)
-    // Simulated async action — replace with real API call
-    await new Promise((r) => setTimeout(r, 900))
-    setLoading(false)
-    setSubmitted(true)
+    setErrorMsg('')
+    try {
+      const res = await fetch('/api/capture-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      const data = await res.json()
+      if (!res.ok) {
+        setErrorMsg(data.error ?? 'Something went wrong. Please try again.')
+      } else {
+        setSubmitted(true)
+      }
+    } catch {
+      setErrorMsg('Network error. Please check your connection and try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -169,9 +184,14 @@ export default function CTASection() {
           )}
 
           {!submitted && (
-            <p className="mt-4 text-text-muted text-xs">
-              Free preview · No credit card · Cancel any time
-            </p>
+            <>
+              {errorMsg && (
+                <p className="mt-3 text-red-400 text-xs">{errorMsg}</p>
+              )}
+              <p className="mt-4 text-text-muted text-xs">
+                Free preview · No credit card · Cancel any time
+              </p>
+            </>
           )}
         </motion.div>
 
