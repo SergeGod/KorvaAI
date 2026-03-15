@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#070d12"/>
+      <stop offset="100%" style="stop-color:#040a0e"/>
+    </linearGradient>
+    <radialGradient id="glow4" cx="60%" cy="40%" r="45%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:0.07"/>
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="accent4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#0ea5e9;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="chartBar" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.7"/>
+    </linearGradient>
+    <linearGradient id="chartBar2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg4)"/>
+  <rect width="800" height="600" fill="url(#glow4)"/>
+
+  <!-- Grid -->
+  <g stroke="#0ea5e9" stroke-opacity="0.035" stroke-width="1">
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="450" x2="800" y2="450"/>
+    <line x1="133" y1="0" x2="133" y2="600"/>
+    <line x1="266" y1="0" x2="266" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="533" y1="0" x2="533" y2="600"/>
+    <line x1="666" y1="0" x2="666" y2="600"/>
+  </g>
+
+  <!-- Header panel -->
+  <rect x="60" y="60" width="680" height="60" rx="4" fill="#0a141c" stroke="#0ea5e9" stroke-opacity="0.1" stroke-width="1"/>
+  <rect x="80" y="78" width="120" height="12" rx="2" fill="#0ea5e9" fill-opacity="0.5"/>
+  <rect x="80" y="96" width="80" height="6" rx="2" fill="#ffffff" fill-opacity="0.18"/>
+  <!-- Status dot -->
+  <circle cx="650" cy="82" r="5" fill="#22c55e" fill-opacity="0.8"/>
+  <rect x="662" y="78" width="60" height="8" rx="2" fill="#22c55e" fill-opacity="0.45"/>
+  <rect x="662" y="92" width="40" height="5" rx="2" fill="#ffffff" fill-opacity="0.2"/>
+
+  <!-- KPI bar chart -->
+  <rect x="60" y="140" width="320" height="250" rx="4" fill="#09131a" stroke="#0ea5e9" stroke-opacity="0.1" stroke-width="1"/>
+  <rect x="78" y="158" width="100" height="8" rx="2" fill="#ffffff" fill-opacity="0.3"/>
+  <rect x="78" y="172" width="60" height="5" rx="2" fill="#0ea5e9" fill-opacity="0.5"/>
+
+  <!-- Bars -->
+  <rect x="90"  y="280" width="28" height="90" rx="2" fill="url(#chartBar)"/>
+  <rect x="130" y="255" width="28" height="115" rx="2" fill="url(#chartBar)"/>
+  <rect x="170" y="235" width="28" height="135" rx="2" fill="url(#chartBar)"/>
+  <rect x="210" y="270" width="28" height="100" rx="2" fill="url(#chartBar2)"/>
+  <rect x="250" y="220" width="28" height="150" rx="2" fill="url(#chartBar)"/>
+  <rect x="290" y="245" width="28" height="125" rx="2" fill="url(#chartBar2)"/>
+  <rect x="330" y="200" width="28" height="170" rx="2" fill="url(#chartBar)"/>
+
+  <!-- Grid lines inside chart -->
+  <g stroke="#ffffff" stroke-opacity="0.05" stroke-width="1">
+    <line x1="78" y1="250" x2="360" y2="250"/>
+    <line x1="78" y1="300" x2="360" y2="300"/>
+    <line x1="78" y1="350" x2="360" y2="350"/>
+  </g>
+
+  <!-- Anomaly alert panel -->
+  <rect x="400" y="140" width="340" height="110" rx="4" fill="#091014" stroke="#ef4444" stroke-opacity="0.3" stroke-width="1"/>
+  <rect x="418" y="158" width="120" height="8" rx="2" fill="#ef4444" fill-opacity="0.55"/>
+  <rect x="418" y="174" width="200" height="5" rx="2" fill="#ffffff" fill-opacity="0.2"/>
+  <rect x="418" y="186" width="180" height="5" rx="2" fill="#ffffff" fill-opacity="0.15"/>
+  <rect x="418" y="198" width="140" height="5" rx="2" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="418" y="216" width="90" height="20" rx="3" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-opacity="0.4" stroke-width="1"/>
+  <rect x="524" y="216" width="90" height="20" rx="3" fill="#0ea5e9" fill-opacity="0.1" stroke="#0ea5e9" stroke-opacity="0.3" stroke-width="1"/>
+
+  <!-- Trend line panel -->
+  <rect x="400" y="265" width="340" height="125" rx="4" fill="#09131a" stroke="#0ea5e9" stroke-opacity="0.1" stroke-width="1"/>
+  <rect x="418" y="280" width="80" height="7" rx="2" fill="#ffffff" fill-opacity="0.25"/>
+  <polyline points="418,360 445,340 475,355 510,320 545,310 580,290 615,305 650,275 700,285 730,260" stroke="#0ea5e9" stroke-opacity="0.8" stroke-width="2" fill="none"/>
+  <polygon points="418,370 445,340 475,355 510,320 545,310 580,290 615,305 650,275 700,285 730,260 730,370" fill="#0ea5e9" fill-opacity="0.05"/>
+
+  <!-- Slack-style report card -->
+  <rect x="60" y="408" width="680" height="130" rx="4" fill="#09131a" stroke="#0ea5e9" stroke-opacity="0.12" stroke-width="1"/>
+  <!-- Slack icon approximation -->
+  <rect x="76" y="424" width="4" height="18" rx="2" fill="#0ea5e9" fill-opacity="0.7"/>
+  <rect x="84" y="424" width="280" height="8" rx="2" fill="#0ea5e9" fill-opacity="0.5"/>
+  <rect x="84" y="438" width="220" height="5" rx="2" fill="#ffffff" fill-opacity="0.25"/>
+  <rect x="84" y="450" width="250" height="5" rx="2" fill="#ffffff" fill-opacity="0.18"/>
+  <rect x="84" y="462" width="190" height="5" rx="2" fill="#ffffff" fill-opacity="0.15"/>
+  <rect x="84" y="476" width="80" height="6" rx="2" fill="#0ea5e9" fill-opacity="0.35"/>
+
+  <!-- Metrics inline -->
+  <rect x="420" y="430" width="100" height="40" rx="3" fill="#0c1c28" stroke="#0ea5e9" stroke-opacity="0.15" stroke-width="1"/>
+  <rect x="432" y="440" width="60" height="6" rx="2" fill="#0ea5e9" fill-opacity="0.6"/>
+  <rect x="432" y="452" width="40" height="5" rx="2" fill="#22c55e" fill-opacity="0.5"/>
+
+  <rect x="534" y="430" width="100" height="40" rx="3" fill="#0c1c28" stroke="#0ea5e9" stroke-opacity="0.15" stroke-width="1"/>
+  <rect x="546" y="440" width="60" height="6" rx="2" fill="#f59e0b" fill-opacity="0.6"/>
+  <rect x="546" y="452" width="40" height="5" rx="2" fill="#f59e0b" fill-opacity="0.4"/>
+
+  <rect x="648" y="430" width="72" height="40" rx="3" fill="#0c1c28" stroke="#0ea5e9" stroke-opacity="0.15" stroke-width="1"/>
+  <rect x="660" y="440" width="40" height="6" rx="2" fill="#ef4444" fill-opacity="0.6"/>
+  <rect x="660" y="452" width="30" height="5" rx="2" fill="#ef4444" fill-opacity="0.4"/>
+
+  <!-- Timestamp -->
+  <rect x="84" y="498" width="100" height="5" rx="2" fill="#ffffff" fill-opacity="0.1"/>
+
+  <!-- Accent line -->
+  <rect x="0" y="598" width="800" height="2" fill="url(#accent4)"/>
+  <text x="400" y="570" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.18" letter-spacing="3">FLOWINTEL · AI ANALYTICS AGENT</text>
+</svg>

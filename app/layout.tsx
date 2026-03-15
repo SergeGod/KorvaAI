@@ -1,10 +1,11 @@
-// app/layout.tsx
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import LoadingScreen from '@/components/ui/LoadingScreen'
+import WhatsAppButton from '@/components/ui/WhatsAppButton'
 
 export const viewport: Viewport = {
-  themeColor: '#06060a',
+  themeColor: '#080808',
 }
 
 const inter = Inter({
@@ -14,14 +15,23 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'KorvaAI — Your AI-Powered Web Agency',
+  title: 'KorvaAI — AI-Powered Web Agency | Madrid',
   description:
-    'KorvaAI builds stunning, high-performance websites powered by artificial intelligence. Go live in days, not months.',
-  keywords: ['AI agency', 'web design', 'AI website builder', 'Next.js agency'],
+    'KorvaAI builds premium websites and AI automation systems for high-ticket businesses worldwide. Get your free design preview in 24 hours. Based in Madrid.',
+  keywords: ['AI web agency', 'web design Madrid', 'AI automation', 'premium websites', 'Next.js agency', 'KorvaAI'],
   openGraph: {
-    title: 'KorvaAI — Your AI-Powered Web Agency',
-    description: 'KorvaAI builds stunning, high-performance websites powered by artificial intelligence.',
+    title: 'KorvaAI — AI-Powered Web Agency | Madrid',
+    description:
+      'Premium websites and AI automation for high-ticket businesses. Free design preview in 24 hours.',
     type: 'website',
+    url: 'https://korva.es',
+    siteName: 'KorvaAI',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'KorvaAI — AI-Powered Web Agency | Madrid',
+    description: 'Premium websites and AI automation for high-ticket businesses.',
   },
 }
 
@@ -33,9 +43,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body>
-        {/* Subtle film grain overlay */}
         <div className="noise-overlay" aria-hidden="true" />
+        <LoadingScreen />
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   )

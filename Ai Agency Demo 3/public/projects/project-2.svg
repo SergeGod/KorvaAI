@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#060d0d"/>
+      <stop offset="100%" style="stop-color:#03090a"/>
+    </linearGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.07"/>
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="accent2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#10b981;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg2)"/>
+  <rect width="800" height="600" fill="url(#glow2)"/>
+
+  <!-- Subtle circuit-like grid -->
+  <g stroke="#10b981" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="160" y1="0" x2="160" y2="600"/>
+    <line x1="320" y1="0" x2="320" y2="600"/>
+    <line x1="480" y1="0" x2="480" y2="600"/>
+    <line x1="640" y1="0" x2="640" y2="600"/>
+  </g>
+
+  <!-- Central AI brain / neural network visualization -->
+  <!-- Core circle -->
+  <circle cx="400" cy="280" r="70" fill="none" stroke="#10b981" stroke-opacity="0.25" stroke-width="1.5"/>
+  <circle cx="400" cy="280" r="48" fill="none" stroke="#10b981" stroke-opacity="0.35" stroke-width="1"/>
+  <circle cx="400" cy="280" r="26" fill="#10b981" fill-opacity="0.08"/>
+  <circle cx="400" cy="280" r="16" fill="#10b981" fill-opacity="0.15"/>
+
+  <!-- Neural connection lines -->
+  <g stroke="#10b981" stroke-opacity="0.2" stroke-width="1">
+    <line x1="400" y1="210" x2="280" y2="140"/>
+    <line x1="400" y1="210" x2="520" y2="140"/>
+    <line x1="470" y1="250" x2="600" y2="200"/>
+    <line x1="470" y1="310" x2="590" y2="360"/>
+    <line x1="400" y1="350" x2="330" y2="430"/>
+    <line x1="400" y1="350" x2="480" y2="430"/>
+    <line x1="330" y1="250" x2="200" y2="210"/>
+    <line x1="330" y1="310" x2="210" y2="370"/>
+  </g>
+
+  <!-- Outer nodes -->
+  <circle cx="280" cy="140" r="14" fill="#0a1a15" stroke="#10b981" stroke-opacity="0.4" stroke-width="1"/>
+  <circle cx="520" cy="140" r="14" fill="#0a1a15" stroke="#10b981" stroke-opacity="0.4" stroke-width="1"/>
+  <circle cx="600" cy="200" r="10" fill="#0a1a15" stroke="#10b981" stroke-opacity="0.3" stroke-width="1"/>
+  <circle cx="590" cy="360" r="10" fill="#0a1a15" stroke="#10b981" stroke-opacity="0.3" stroke-width="1"/>
+  <circle cx="480" cy="430" r="14" fill="#0a1a15" stroke="#10b981" stroke-opacity="0.35" stroke-width="1"/>
+  <circle cx="330" cy="430" r="14" fill="#0a1a15" stroke="#10b981" stroke-opacity="0.35" stroke-width="1"/>
+  <circle cx="200" cy="210" r="10" fill="#0a1a15" stroke="#10b981" stroke-opacity="0.3" stroke-width="1"/>
+  <circle cx="210" cy="370" r="10" fill="#0a1a15" stroke="#10b981" stroke-opacity="0.3" stroke-width="1"/>
+
+  <!-- Chat bubbles representing AI receptionist -->
+  <!-- Incoming message -->
+  <rect x="88" y="90" width="220" height="48" rx="6" fill="#0d1a14" stroke="#10b981" stroke-opacity="0.2" stroke-width="1"/>
+  <rect x="100" y="106" width="140" height="6" rx="3" fill="#ffffff" fill-opacity="0.25"/>
+  <rect x="100" y="120" width="100" height="6" rx="3" fill="#ffffff" fill-opacity="0.15"/>
+
+  <!-- Outgoing (AI) message -->
+  <rect x="500" y="80" width="220" height="56" rx="6" fill="#0d1f18" stroke="#10b981" stroke-opacity="0.35" stroke-width="1"/>
+  <rect x="512" y="96" width="160" height="6" rx="3" fill="#10b981" fill-opacity="0.55"/>
+  <rect x="512" y="110" width="120" height="6" rx="3" fill="#10b981" fill-opacity="0.35"/>
+  <rect x="512" y="124" width="80" height="6" rx="3" fill="#10b981" fill-opacity="0.2"/>
+
+  <!-- Status indicators -->
+  <rect x="88" y="460" width="620" height="64" rx="4" fill="#0a1512" stroke="#10b981" stroke-opacity="0.15" stroke-width="1"/>
+  <circle cx="116" cy="492" r="10" fill="#10b981" fill-opacity="0.8"/>
+  <rect x="136" y="486" width="80" height="6" rx="2" fill="#10b981" fill-opacity="0.55"/>
+  <rect x="136" y="498" width="120" height="5" rx="2" fill="#ffffff" fill-opacity="0.18"/>
+
+  <rect x="290" y="480" width="1" height="24" fill="#ffffff" fill-opacity="0.1"/>
+
+  <rect x="308" y="486" width="100" height="6" rx="2" fill="#ffffff" fill-opacity="0.28"/>
+  <rect x="308" y="498" width="60" height="5" rx="2" fill="#f59e0b" fill-opacity="0.6"/>
+
+  <rect x="490" y="480" width="1" height="24" fill="#ffffff" fill-opacity="0.1"/>
+
+  <rect x="508" y="486" width="80" height="6" rx="2" fill="#ffffff" fill-opacity="0.28"/>
+  <rect x="508" y="498" width="120" height="5" rx="2" fill="#10b981" fill-opacity="0.5"/>
+
+  <!-- Accent line -->
+  <rect x="0" y="598" width="800" height="2" fill="url(#accent2)"/>
+
+  <text x="400" y="570" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.18" letter-spacing="3">PULSEDESK · AI RECEPTIONIST</text>
+</svg>

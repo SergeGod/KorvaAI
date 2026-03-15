@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080c14"/>
+      <stop offset="100%" style="stop-color:#050810"/>
+    </linearGradient>
+    <linearGradient id="accent1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#f59e0b;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.08"/>
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg1)"/>
+  <rect width="800" height="600" fill="url(#glow1)"/>
+
+  <!-- Grid lines -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="450" x2="800" y2="450"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+  </g>
+
+  <!-- CRM Dashboard UI mockup -->
+  <!-- Sidebar -->
+  <rect x="60" y="80" width="160" height="440" rx="4" fill="#0d1117" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+  <rect x="76" y="110" width="40" height="6" rx="2" fill="#f59e0b" fill-opacity="0.7"/>
+  <rect x="124" y="110" width="80" height="6" rx="2" fill="#ffffff" fill-opacity="0.25"/>
+
+  <!-- Nav items -->
+  <g fill="#ffffff" fill-opacity="0.18">
+    <rect x="76" y="150" width="128" height="28" rx="3"/>
+    <rect x="76" y="190" width="128" height="28" rx="3"/>
+    <rect x="76" y="230" width="128" height="28" rx="3"/>
+    <rect x="76" y="270" width="128" height="28" rx="3"/>
+  </g>
+  <!-- Active nav -->
+  <rect x="76" y="150" width="128" height="28" rx="3" fill="#f59e0b" fill-opacity="0.12"/>
+  <rect x="76" y="150" width="3" height="28" rx="1" fill="#f59e0b" fill-opacity="0.9"/>
+
+  <!-- Main panel -->
+  <rect x="240" y="80" width="500" height="440" rx="4" fill="#0a0f1a" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+
+  <!-- Top bar -->
+  <rect x="240" y="80" width="500" height="48" rx="4" fill="#0d1520"/>
+  <rect x="260" y="96" width="120" height="14" rx="2" fill="#ffffff" fill-opacity="0.2"/>
+  <rect x="648" y="96" width="72" height="14" rx="2" fill="#f59e0b" fill-opacity="0.6"/>
+
+  <!-- Stat cards row -->
+  <rect x="260" y="150" width="140" height="72" rx="3" fill="#0d1520" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1"/>
+  <rect x="260" y="158" width="60" height="6" rx="2" fill="#ffffff" fill-opacity="0.2"/>
+  <rect x="260" y="172" width="90" height="18" rx="2" fill="#f59e0b" fill-opacity="0.65"/>
+  <rect x="260" y="198" width="50" height="5" rx="2" fill="#22c55e" fill-opacity="0.7"/>
+
+  <rect x="416" y="150" width="140" height="72" rx="3" fill="#0d1520" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1"/>
+  <rect x="416" y="158" width="60" height="6" rx="2" fill="#ffffff" fill-opacity="0.2"/>
+  <rect x="416" y="172" width="75" height="18" rx="2" fill="#ffffff" fill-opacity="0.4"/>
+  <rect x="416" y="198" width="50" height="5" rx="2" fill="#f59e0b" fill-opacity="0.7"/>
+
+  <rect x="572" y="150" width="148" height="72" rx="3" fill="#0d1520" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1"/>
+  <rect x="572" y="158" width="60" height="6" rx="2" fill="#ffffff" fill-opacity="0.2"/>
+  <rect x="572" y="172" width="85" height="18" rx="2" fill="#ffffff" fill-opacity="0.35"/>
+  <rect x="572" y="198" width="50" height="5" rx="2" fill="#ef4444" fill-opacity="0.6"/>
+
+  <!-- Chart area -->
+  <rect x="260" y="240" width="300" height="200" rx="3" fill="#0d1520" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1"/>
+  <polyline points="275,415 310,380 350,390 400,350 440,320 480,340 520,295 555,310" stroke="#f59e0b" stroke-opacity="0.8" stroke-width="2" fill="none"/>
+  <polygon points="275,415 310,380 350,390 400,350 440,320 480,340 520,295 555,310 555,425 275,425" fill="#f59e0b" fill-opacity="0.05"/>
+
+  <!-- Table area -->
+  <rect x="572" y="240" width="148" height="200" rx="3" fill="#0d1520" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1"/>
+  <rect x="582" y="252" width="128" height="8" rx="2" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="582" y="270" width="128" height="1" fill="#ffffff" fill-opacity="0.06"/>
+  <rect x="582" y="279" width="90" height="6" rx="2" fill="#ffffff" fill-opacity="0.18"/>
+  <rect x="582" y="293" width="70" height="6" rx="2" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="582" y="307" width="100" height="6" rx="2" fill="#ffffff" fill-opacity="0.15"/>
+  <rect x="582" y="321" width="80" height="6" rx="2" fill="#ffffff" fill-opacity="0.10"/>
+  <rect x="582" y="335" width="110" height="6" rx="2" fill="#ffffff" fill-opacity="0.18"/>
+
+  <!-- Bottom bar -->
+  <rect x="260" y="460" width="460" height="44" rx="3" fill="#0d1520" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1"/>
+  <rect x="276" y="474" width="180" height="8" rx="2" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="640" y="474" width="64" height="8" rx="2" fill="#f59e0b" fill-opacity="0.5"/>
+
+  <!-- Accent bottom line -->
+  <rect x="0" y="598" width="800" height="2" fill="url(#accent1)"/>
+
+  <!-- Label -->
+  <text x="400" y="570" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.18" letter-spacing="3">NEXACORE CRM · WEB APP</text>
+</svg>

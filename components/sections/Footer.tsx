@@ -1,22 +1,44 @@
-// components/sections/Footer.tsx
+import Link from 'next/link'
 
-const footerLinks = {
-  Product: ['Features', 'Pricing', 'Changelog', 'Roadmap'],
-  Company: ['About', 'Blog', 'Careers', 'Press'],
-  Resources: ['Documentation', 'API', 'Status', 'Support'],
-  Legal: ['Privacy Policy', 'Terms of Service', 'Cookie Policy'],
+interface FooterLink {
+  label: string
+  href: string
+  isPage?: boolean
 }
 
+const footerLinks: Record<string, FooterLink[]> = {
+  Product: [
+    { label: 'How It Works', href: '#how-it-works' },
+    { label: 'Features', href: '#what-we-do' },
+    { label: 'Pricing', href: '#pricing' },
+    { label: 'Portfolio', href: '#portfolio' },
+  ],
+  Company: [
+    { label: 'About', href: '/about', isPage: true },
+    { label: 'Blog', href: '/blog', isPage: true },
+    { label: 'Contact', href: '/contact', isPage: true },
+  ],
+  Contact: [
+    { label: 'hello@korva.es', href: 'mailto:hello@korva.es' },
+    { label: 'Madrid, Spain', href: '#' },
+    { label: 'WhatsApp', href: 'https://wa.me/34605726317' },
+  ],
+  Legal: [
+    { label: 'Privacy Policy', href: '#' },
+    { label: 'Terms of Service', href: '#' },
+    { label: 'Cookie Policy', href: '#' },
+  ],
+}
 
 export default function Footer() {
   return (
-    <footer className="bg-background border-t border-border pt-16 pb-8 px-6" role="contentinfo">
+    <footer className="bg-surface border-t border-border pt-16 pb-8 px-6" role="contentinfo">
       <div className="max-w-6xl mx-auto">
-        {/* Top row: logo + links grid */}
+        {/* Top row */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 mb-14">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
-            <a href="/" className="inline-flex items-center gap-2.5 mb-4" aria-label="KorvaAI home">
+            <Link href="/" className="inline-flex items-center gap-2.5 mb-4" aria-label="KorvaAI home">
               <div className="w-7 h-7 rounded-lg bg-primary flex items-center justify-center">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <circle cx="8" cy="5" r="2" fill="white" />
@@ -26,13 +48,12 @@ export default function Footer() {
                   <line x1="8" y1="7" x2="12.5" y2="9" stroke="white" strokeWidth="1.2" strokeOpacity="0.5" />
                 </svg>
               </div>
-              <span className="text-text-primary font-semibold text-base">
+              <span className="text-text-primary font-bold text-base">
                 Korva<span className="text-primary-light">AI</span>
               </span>
-            </a>
+            </Link>
             <p className="text-text-muted text-sm leading-relaxed max-w-xs">
-              AI-powered web design and development for modern businesses. Fast,
-              beautiful, and built to grow.
+              AI-powered web agency based in Madrid. We build websites that grow your business.
             </p>
           </div>
 
@@ -44,13 +65,24 @@ export default function Footer() {
               </h3>
               <ul className="space-y-2.5">
                 {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-text-muted text-sm hover:text-text-secondary transition-colors duration-200"
-                    >
-                      {link}
-                    </a>
+                  <li key={link.label}>
+                    {link.isPage ? (
+                      <Link
+                        href={link.href}
+                        className="text-text-muted text-sm hover:text-text-secondary transition-colors duration-200"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-text-muted text-sm hover:text-text-secondary transition-colors duration-200"
+                        target={link.href.startsWith('http') ? '_blank' : undefined}
+                        rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -63,10 +95,9 @@ export default function Footer() {
           <p className="text-text-muted text-xs">
             © {new Date().getFullYear()} KorvaAI. All rights reserved.
           </p>
-          <div className="flex items-center gap-1.5 text-text-muted text-xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            All systems operational
-          </div>
+          <p className="text-text-muted text-xs">
+            Made with ❤ in Madrid
+          </p>
         </div>
       </div>
     </footer>
