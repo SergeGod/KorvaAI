@@ -2,31 +2,27 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Search, Zap, Rocket } from 'lucide-react'
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
 const steps = [
   {
     number: '01',
-    icon: Search,
-    title: 'Discovery',
+    title: 'We Design with Precision',
     description:
-      'Tell us about your business in plain English. No brief, no lengthy forms. A 15-minute call is all we need.',
+      'We study your brand, audience, and goals — then craft a tailored design direction. Every pixel is intentional, every section built to engage and convert.',
   },
   {
     number: '02',
-    icon: Zap,
-    title: 'Demo in 24h',
+    title: 'We Deliver the Demo',
     description:
-      'Receive a fully interactive design demo within 24 hours. Request unlimited changes until it is exactly right.',
+      'Within days you receive a fully interactive demo — real pages, real copy, real performance. Review it, request changes, and approve when it feels right.',
   },
   {
     number: '03',
-    icon: Rocket,
-    title: 'Launch & Scale',
+    title: 'We Launch & Scale',
     description:
-      'Go live on a global edge network. We manage everything from there — updates, performance, and AI agents.',
+      'Go live on a global edge network with one click. We manage hosting, updates, and performance — while AI automation keeps your business running around the clock.',
   },
 ]
 
@@ -37,74 +33,85 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="relative py-24 px-6 bg-surface"
+      className="relative py-28 px-6 overflow-hidden"
       aria-labelledby="how-it-works-heading"
     >
-      {/* Top / bottom borders */}
-      <div aria-hidden="true" className="absolute top-0 inset-x-0 h-px bg-border" />
-      <div aria-hidden="true" className="absolute bottom-0 inset-x-0 h-px bg-border" />
+      {/* Subtle gradient */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 60% 40% at 50% 100%, rgba(37,99,235,0.06) 0%, transparent 70%)',
+        }}
+      />
 
-      <div ref={ref} className="max-w-6xl mx-auto">
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glow-pill text-xs font-medium mb-4 select-none">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary-light" aria-hidden="true" />
-            How It Works
-          </div>
-          <h2
-            id="how-it-works-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-primary tracking-tight"
+      <div ref={ref} className="max-w-5xl mx-auto">
+        {/* Section header */}
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#1a1a1a] bg-[#0f0f0f] text-sm text-white mb-6 select-none"
           >
-            From idea to{' '}
-            <span className="text-gradient">live site</span>
-            {' '}in days.
-          </h2>
-        </motion.div>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" aria-hidden="true" />
+            The Process
+          </motion.div>
 
-        {/* Steps grid */}
+          <motion.h2
+            id="how-it-works-heading"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1, ease }}
+            className="text-4xl sm:text-5xl font-black tracking-tight text-white mb-5"
+          >
+            Three Steps to Your Website.
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2, ease }}
+            className="text-[#6b7280] text-lg max-w-2xl mx-auto leading-relaxed"
+          >
+            From idea to live website in as little as 48 hours. Our streamlined AI process removes
+            bottlenecks and delivers quality at speed.
+          </motion.p>
+        </div>
+
+        {/* Steps */}
         <div className="relative">
-          {/* Mobile vertical connector */}
-          <div className="lg:hidden absolute left-[26px] top-8 bottom-8 w-px bg-border" aria-hidden="true" />
+          {/* Desktop dashed connector */}
+          <div
+            aria-hidden="true"
+            className="hidden md:block absolute top-10 left-[calc(16.666%+2.5rem)] right-[calc(16.666%+2.5rem)] h-px"
+            style={{
+              background:
+                'repeating-linear-gradient(90deg, rgba(37,99,235,0.5) 0px, rgba(37,99,235,0.5) 6px, transparent 6px, transparent 16px)',
+            }}
+          />
 
-          <div className="grid lg:grid-cols-3 gap-10 lg:gap-8 relative">
-            {/* Desktop horizontal connector */}
-            <div
-              aria-hidden="true"
-              className="hidden lg:block absolute top-[52px] left-[16.5%] right-[16.5%] h-px"
-              style={{ background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.4) 20%, rgba(37,99,235,0.4) 80%, transparent)' }}
-            />
-
-            {steps.map((step, i) => {
-              const Icon = step.icon
-              return (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, y: 28 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: i * 0.12, ease }}
-                  className="relative flex gap-5 lg:flex-col lg:gap-0 lg:text-center"
-                >
-                  {/* Icon circle (acts as the timeline node) */}
-                  <div className="flex-shrink-0 relative z-10 w-14 h-14 lg:mx-auto rounded-full bg-surface-2 border border-border-bright flex items-center justify-center lg:mb-6">
-                    <Icon size={22} className="text-primary-light" aria-hidden="true" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-8">
+            {steps.map((step, i) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 28 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.1 + i * 0.12, ease }}
+                className="flex flex-col items-start md:items-center text-left md:text-center"
+              >
+                {/* Circle with step number */}
+                <div className="relative mb-6 flex-shrink-0">
+                  <div className="w-20 h-20 rounded-full border border-[#1a1a1a] bg-[#0f0f0f] flex items-center justify-center">
+                    <span className="text-2xl font-black text-gradient">{step.number}</span>
                   </div>
+                  <div className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#2563EB] shadow-[0_0_10px_rgba(37,99,235,0.7)]" />
+                </div>
 
-                  <div className="lg:px-2">
-                    {/* Decorative number */}
-                    <div className="text-5xl font-black leading-none mb-2 lg:mb-3" style={{ color: 'rgba(37,99,235,0.12)' }} aria-hidden="true">
-                      {step.number}
-                    </div>
-                    <h3 className="text-text-primary font-bold text-xl mb-2">{step.title}</h3>
-                    <p className="text-text-secondary text-sm leading-relaxed">{step.description}</p>
-                  </div>
-                </motion.div>
-              )
-            })}
+                <h3 className="text-white font-bold text-lg mb-3">{step.title}</h3>
+                <p className="text-[#6b7280] text-sm leading-relaxed">{step.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

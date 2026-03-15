@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import Navbar from '@/components/sections/Navbar'
-import Footer from '@/components/sections/Footer'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 import ContactForm from '@/components/sections/ContactForm'
 import { Mail, MapPin, Clock, MessageCircle } from 'lucide-react'
 

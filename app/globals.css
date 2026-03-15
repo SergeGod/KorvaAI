@@ -4,18 +4,14 @@
 
 /* ── CSS custom properties ─────────────────────────────────────────── */
 :root {
-  --color-background:    #080808;
-  --color-surface:       #111111;
-  --color-surface-2:     #1a1a1a;
-  --color-border:        #1f1f1f;
-  --color-border-bright: #2a2a2a;
-  --color-primary:       #2563EB;
-  --color-primary-light: #3B82F6;
-  --color-primary-dim:   #1D4ED8;
-  --color-accent:        #60A5FA;
-  --color-text-primary:  #FFFFFF;
-  --color-text-secondary:#9CA3AF;
-  --color-text-muted:    #4B5563;
+  --color-background:  #080808;
+  --color-card:        #0f0f0f;
+  --color-border:      #1a1a1a;
+  --color-primary:     #2563EB;
+  --color-secondary:   #7c3aed;
+  --color-foreground:  #ffffff;
+  --color-muted:       #6b7280;
+  --color-glow:        rgba(37, 99, 235, 0.15);
 }
 
 /* ── Base reset ─────────────────────────────────────────────────────── */
@@ -35,110 +31,104 @@ html {
 
 body {
   background-color: var(--color-background);
-  color: var(--color-text-primary);
+  color: var(--color-foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
 /* ── Scrollbar ──────────────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--color-background); }
-::-webkit-scrollbar-thumb { background: var(--color-border-bright); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
 
 /* ── Focus & selection ──────────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid var(--color-primary-light);
+  outline: 2px solid var(--color-primary);
   outline-offset: 3px;
   border-radius: 4px;
 }
 ::selection {
-  background-color: rgba(37, 99, 235, 0.4);
+  background-color: rgba(37, 99, 235, 0.35);
   color: #fff;
 }
 
-/* ── Noise overlay ──────────────────────────────────────────────────── */
-.noise-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 999;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 128px 128px;
+/* ── Dot grid texture (Linear-style) ────────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-/* ── Glass card ─────────────────────────────────────────────────────── */
-.glass-card {
-  background: rgba(17, 17, 17, 0.85);
-  border: 1px solid var(--color-border-bright);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+/* ── Gradient text ──────────────────────────────────────────────────── */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #2563EB 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-white {
+    background: linear-gradient(135deg, #ffffff 0%, #a0b4d6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* ── Card hover glow ────────────────────────────────────────────────── */
+.card-hover {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+.card-hover:hover {
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.15);
+  border-color: rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
 }
 
 /* ── Browser mockup chrome ──────────────────────────────────────────── */
 .browser-mockup {
-  border: 1px solid var(--color-border-bright);
+  border: 1px solid #2a2a2a;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 24px 80px rgba(0, 0, 0, 0.7),
+    0 0 60px rgba(37, 99, 235, 0.1);
 }
 
-.browser-mockup-bar {
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* ── Section glow orb ───────────────────────────────────────────────── */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
 }
 
-/* ── Gradient border ────────────────────────────────────────────────── */
-.gradient-border { position: relative; }
+/* ── Frosted glass ──────────────────────────────────────────────────── */
+.glass {
+  background: rgba(8, 8, 8, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ── Gradient border card ───────────────────────────────────────────── */
+.gradient-border {
+  position: relative;
+}
 .gradient-border::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.5), rgba(96, 165, 250, 0.2));
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.4), rgba(124, 58, 237, 0.2));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
-}
-
-/* ── Dot grid ───────────────────────────────────────────────────────── */
-.dot-grid {
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-/* ── Glow pill badge ────────────────────────────────────────────────── */
-.glow-pill {
-  background: rgba(37, 99, 235, 0.12);
-  border: 1px solid rgba(37, 99, 235, 0.35);
-  color: var(--color-primary-light);
-}
-
-/* ── Text gradients ─────────────────────────────────────────────────── */
-@layer utilities {
-  .text-gradient {
-    background: linear-gradient(135deg, #FFFFFF 0%, #60A5FA 50%, #2563EB 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-gradient-accent {
-    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
 }
 
 /* ── Reduced motion ─────────────────────────────────────────────────── */

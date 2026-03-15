@@ -22,7 +22,7 @@ const plans = [
       '1 month post-launch support',
     ],
     cta: 'Get Started',
-    ctaHref: '#final-cta',
+    ctaHref: '#contact-cta',
     featured: false,
   },
   {
@@ -68,32 +68,45 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className="relative py-24 px-6 bg-background"
+      className="relative py-28 px-6 bg-[#0a0a0a]"
       aria-labelledby="pricing-heading"
     >
-      <div ref={ref} className="max-w-6xl mx-auto">
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease }}
-          className="text-center mb-14"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glow-pill text-xs font-medium mb-4 select-none">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary-light" aria-hidden="true" />
+      <div aria-hidden="true" className="absolute top-0 inset-x-0 h-px bg-[#1a1a1a]" />
+      <div aria-hidden="true" className="absolute bottom-0 inset-x-0 h-px bg-[#1a1a1a]" />
+
+      <div ref={ref} className="max-w-5xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#1a1a1a] bg-[#0f0f0f] text-sm text-white mb-6 select-none"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" aria-hidden="true" />
             Pricing
-          </div>
-          <h2
+          </motion.div>
+
+          <motion.h2
             id="pricing-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-primary tracking-tight mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1, ease }}
+            className="text-4xl sm:text-5xl font-black tracking-tight text-white mb-5"
           >
             Transparent{' '}
             <span className="text-gradient">starting point.</span>
-          </h2>
-          <p className="text-text-secondary text-base max-w-xl mx-auto">
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2, ease }}
+            className="text-[#6b7280] text-lg max-w-xl mx-auto leading-relaxed"
+          >
             Every project is different. We always quote based on your specific needs — but here&apos;s a clear starting point.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* Cards */}
         <div className="grid md:grid-cols-3 gap-6 items-stretch">
@@ -102,36 +115,37 @@ export default function Pricing() {
               key={plan.name}
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.1, ease }}
-              className={`rounded-2xl p-7 flex flex-col relative ${
+              transition={{ duration: 0.6, delay: 0.1 + i * 0.1, ease }}
+              className={`rounded-xl p-7 flex flex-col relative ${
                 plan.featured
-                  ? 'bg-gradient-card border-2 border-primary/60 shadow-glow-md'
-                  : 'glass-card'
+                  ? 'bg-[#0f0f0f] border-2 border-[#2563EB]/50 shadow-[0_0_40px_rgba(37,99,235,0.15)]'
+                  : 'bg-[#0f0f0f] border border-[#1a1a1a] card-hover'
               }`}
             >
               {plan.featured && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span className="glow-pill px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2563EB]/15 border border-[#2563EB]/30 text-[#2563EB] text-xs font-semibold whitespace-nowrap">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
                     Most Popular
                   </span>
                 </div>
               )}
 
               <div className="mb-6">
-                <div className="text-text-muted text-xs font-semibold uppercase tracking-widest mb-1">{plan.name}</div>
-                <div className="flex items-baseline gap-1.5 mb-2">
-                  <span className="text-4xl font-black text-text-primary">{plan.price}</span>
+                <div className="text-[#6b7280] text-xs font-semibold uppercase tracking-widest mb-2">{plan.name}</div>
+                <div className="flex items-baseline gap-1.5 mb-3">
+                  <span className="text-4xl font-black text-white">{plan.price}</span>
                   {plan.price !== 'Custom' && (
-                    <span className="text-text-muted text-sm">/ {plan.period}</span>
+                    <span className="text-[#6b7280] text-sm">/ {plan.period}</span>
                   )}
                 </div>
-                <p className="text-text-secondary text-sm leading-relaxed">{plan.description}</p>
+                <p className="text-[#6b7280] text-sm leading-relaxed">{plan.description}</p>
               </div>
 
               <ul className="space-y-3 flex-1 mb-7">
                 {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-text-secondary text-sm">
-                    <Check size={14} className="text-primary-light mt-0.5 flex-shrink-0" aria-hidden="true" />
+                  <li key={f} className="flex items-start gap-2.5 text-[#6b7280] text-sm">
+                    <Check size={14} className="text-[#2563EB] mt-0.5 flex-shrink-0" aria-hidden="true" />
                     {f}
                   </li>
                 ))}
@@ -140,10 +154,10 @@ export default function Pricing() {
               {plan.ctaHref.startsWith('/') ? (
                 <Link
                   href={plan.ctaHref}
-                  className={`flex items-center justify-center px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 ${
+                  className={`flex items-center justify-center px-5 py-3 rounded-lg text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 ${
                     plan.featured
-                      ? 'bg-primary hover:bg-primary-light text-white hover:shadow-glow-sm'
-                      : 'border border-border-bright text-text-secondary hover:text-text-primary hover:border-primary/40'
+                      ? 'bg-[#2563EB] hover:bg-[#1d4ed8] text-white hover:shadow-[0_0_20px_rgba(37,99,235,0.3)]'
+                      : 'border border-[#1a1a1a] text-[#6b7280] hover:text-white hover:border-[#2563EB]/40'
                   }`}
                 >
                   {plan.cta}
@@ -151,10 +165,14 @@ export default function Pricing() {
               ) : (
                 <a
                   href={plan.ctaHref}
-                  className={`flex items-center justify-center px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 ${
+                  onClick={(e) => {
+                    e.preventDefault()
+                    document.getElementById('contact-cta')?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className={`flex items-center justify-center px-5 py-3 rounded-lg text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 ${
                     plan.featured
-                      ? 'bg-primary hover:bg-primary-light text-white hover:shadow-glow-sm'
-                      : 'border border-border-bright text-text-secondary hover:text-text-primary hover:border-primary/40'
+                      ? 'bg-[#2563EB] hover:bg-[#1d4ed8] text-white hover:shadow-[0_0_20px_rgba(37,99,235,0.3)]'
+                      : 'border border-[#1a1a1a] text-[#6b7280] hover:text-white hover:border-[#2563EB]/40'
                   }`}
                 >
                   {plan.cta}

@@ -25,53 +25,65 @@ export default function FinalCTA() {
     if (result.ok) {
       setSubmitted(true)
     } else {
-      setErrorMsg(result.errorMessage ?? 'Something went wrong. Please email us at hello@korva.es')
+      setErrorMsg(result.errorMessage ?? "Something went wrong. Please email us at hello@korva.es")
     }
   }
 
   return (
     <section
-      id="final-cta"
-      className="relative py-28 px-6 bg-background overflow-hidden"
+      id="contact-cta"
+      className="relative py-32 px-6 overflow-hidden"
       aria-labelledby="final-cta-heading"
     >
-      {/* Orbs */}
+      {/* Strong centred glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full"
-        style={{ background: 'radial-gradient(ellipse, rgba(37,99,235,0.18) 0%, transparent 70%)', filter: 'blur(60px)' }}
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full"
+        style={{
+          background: 'radial-gradient(ellipse, rgba(37,99,235,0.22) 0%, rgba(124,58,237,0.1) 40%, transparent 70%)',
+          filter: 'blur(50px)',
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] rounded-full"
+        style={{
+          background: 'radial-gradient(ellipse, rgba(37,99,235,0.15) 0%, transparent 70%)',
+          filter: 'blur(20px)',
+        }}
       />
 
       <div ref={ref} className="max-w-2xl mx-auto relative z-10 text-center">
-        {/* Badge */}
+        {/* Pill */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, ease }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glow-pill text-xs font-medium mb-8 select-none"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#1a1a1a] bg-[#0f0f0f] text-sm text-white mb-8 select-none"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-primary-light animate-pulse" aria-hidden="true" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse" aria-hidden="true" />
           Limited spots available this month
         </motion.div>
 
+        {/* Headline */}
         <motion.h2
           id="final-cta-heading"
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.65, delay: 0.08, ease }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-black text-text-primary leading-[1.06] tracking-tight mb-5"
+          className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.06] tracking-tight mb-5"
         >
-          See Your New Website{' '}
-          <span className="text-gradient">in 24 Hours.</span>
+          Let AI Build{' '}
+          <span className="text-gradient">Your Business.</span>
         </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 18 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.16, ease }}
-          className="text-text-secondary text-base sm:text-lg mb-10 max-w-lg mx-auto leading-relaxed"
+          className="text-[#6b7280] text-base sm:text-lg mb-10 max-w-lg mx-auto leading-relaxed"
         >
-          No commitment. No credit card. Just a free preview of what your business could look like online.
+          Get your free design preview in under 24 hours — no commitment required.
         </motion.p>
 
         {/* Form / Success */}
@@ -81,14 +93,14 @@ export default function FinalCTA() {
           transition={{ duration: 0.6, delay: 0.24, ease }}
         >
           {submitted ? (
-            <div className="glass-card rounded-2xl px-8 py-7 text-center max-w-md mx-auto border border-primary/30">
-              <div className="w-12 h-12 rounded-full bg-primary/15 flex items-center justify-center mx-auto mb-4">
+            <div className="rounded-xl px-8 py-7 text-center max-w-md mx-auto border border-[#2563EB]/30 bg-[#0f0f0f]">
+              <div className="w-12 h-12 rounded-full bg-[#2563EB]/15 flex items-center justify-center mx-auto mb-4">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-                  <path d="M4 11l5 5L18 6" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M4 11l5 5L18 6" stroke="#2563EB" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <p className="text-text-primary font-semibold text-lg mb-1">You are on the list!</p>
-              <p className="text-text-secondary text-sm">
+              <p className="text-white font-semibold text-lg mb-1">You are on the list!</p>
+              <p className="text-[#6b7280] text-sm">
                 Thanks! We&apos;ll be in touch within 24 hours.
               </p>
             </div>
@@ -106,12 +118,12 @@ export default function FinalCTA() {
                 placeholder="Your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-4 py-3.5 rounded-xl bg-surface border border-border hover:border-border-bright focus:border-primary/60 focus:ring-2 focus:ring-primary/20 outline-none text-text-primary placeholder:text-text-muted text-sm transition-all duration-200"
+                className="flex-1 px-4 py-3.5 rounded-lg bg-[#0f0f0f] border border-[#1a1a1a] hover:border-[#2a2a2a] focus:border-[#2563EB]/50 focus:ring-2 focus:ring-[#2563EB]/20 outline-none text-white placeholder:text-[#6b7280] text-sm transition-all duration-200"
               />
               <button
                 type="submit"
                 disabled={loading}
-                className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-light disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-semibold transition-all duration-200 hover:shadow-glow-md hover:-translate-y-0.5 whitespace-nowrap"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-[#2563EB] hover:bg-[#1d4ed8] disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-semibold transition-all duration-200 hover:shadow-[0_0_25px_rgba(37,99,235,0.4)] hover:-translate-y-0.5 whitespace-nowrap"
               >
                 {loading ? (
                   <>
@@ -122,7 +134,7 @@ export default function FinalCTA() {
                   </>
                 ) : (
                   <>
-                    Get Free Preview
+                    Get Free Preview →
                     <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
                   </>
                 )}
@@ -133,7 +145,7 @@ export default function FinalCTA() {
           {!submitted && (
             <>
               {errorMsg && <p className="mt-3 text-red-400 text-xs">{errorMsg}</p>}
-              <p className="mt-4 text-text-muted text-xs">
+              <p className="mt-4 text-[#6b7280] text-xs">
                 Free preview · No credit card · Cancel any time
               </p>
             </>

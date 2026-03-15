@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import LoadingScreen from '@/components/ui/LoadingScreen'
 import WhatsAppButton from '@/components/ui/WhatsAppButton'
 
 export const viewport: Viewport = {
@@ -15,14 +14,24 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'KorvaAI — AI-Powered Web Agency | Madrid',
+  title: {
+    default: 'KorvaAI — Your AI-Powered Web Agency',
+    template: '%s | KorvaAI',
+  },
   description:
-    'KorvaAI builds premium websites and AI automation systems for high-ticket businesses worldwide. Get your free design preview in 24 hours. Based in Madrid.',
-  keywords: ['AI web agency', 'web design Madrid', 'AI automation', 'premium websites', 'Next.js agency', 'KorvaAI'],
+    'We build modern, intelligent websites and automation systems that help businesses scale faster.',
+  keywords: [
+    'AI web agency',
+    'web design',
+    'AI automation',
+    'intelligent websites',
+    'Next.js agency',
+    'KorvaAI',
+  ],
   openGraph: {
-    title: 'KorvaAI — AI-Powered Web Agency | Madrid',
+    title: 'KorvaAI — Your AI-Powered Web Agency',
     description:
-      'Premium websites and AI automation for high-ticket businesses. Free design preview in 24 hours.',
+      'We build modern, intelligent websites and automation systems that help businesses scale faster.',
     type: 'website',
     url: 'https://korva.es',
     siteName: 'KorvaAI',
@@ -30,8 +39,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'KorvaAI — AI-Powered Web Agency | Madrid',
-    description: 'Premium websites and AI automation for high-ticket businesses.',
+    title: 'KorvaAI — Your AI-Powered Web Agency',
+    description:
+      'We build modern, intelligent websites and automation systems that help businesses scale faster.',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
@@ -43,8 +57,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body>
-        <div className="noise-overlay" aria-hidden="true" />
-        <LoadingScreen />
         {children}
         <WhatsAppButton />
       </body>

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Navbar from '@/components/sections/Navbar'
+import Navbar from '@/components/Navbar'
 import FinalCTA from '@/components/sections/FinalCTA'
-import Footer from '@/components/sections/Footer'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'About KorvaAI — Our Story & Team | Madrid',
