@@ -5,33 +5,6 @@ import { motion, useInView } from 'framer-motion'
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
-const testimonials = [
-  {
-    quote:
-      'KorvaAI delivered a website that truly reflects the prestige of our brand. The process was fast, professional, and the result exceeded our expectations.',
-    author: 'Emballage',
-    role: 'Jewellery Display Manufacturing, Dubai',
-    initials: 'EM',
-    real: true,
-  },
-  {
-    quote:
-      'Working with KorvaAI transformed our online presence completely. Their approach to AI-driven design is unlike anything we have experienced before.',
-    author: 'Client Name',
-    role: 'Industry, Location',
-    initials: 'CL',
-    real: false,
-  },
-  {
-    quote:
-      'The monthly management plan means we never worry about our website again. It is always fast, updated, and converting new clients.',
-    author: 'Client Name',
-    role: 'Industry, Location',
-    initials: 'CL',
-    real: false,
-  },
-]
-
 function Stars() {
   return (
     <div className="flex gap-0.5 mb-4" aria-label="5 stars">
@@ -75,39 +48,40 @@ export default function Testimonials() {
           </h2>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 28 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.1, ease }}
-              className={`glass-card rounded-2xl p-7 flex flex-col ${!t.real ? 'opacity-50' : ''}`}
-            >
-              {!t.real && (
-                <div className="mb-3">
-                  <span className="text-xs text-text-muted border border-border px-2 py-0.5 rounded-full">
-                    More reviews coming soon
-                  </span>
-                </div>
-              )}
-              <Stars />
-              <blockquote className="text-text-secondary text-sm leading-relaxed flex-1 mb-6">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary-light text-xs font-bold">{t.initials}</span>
-                </div>
-                <div>
-                  <div className="text-text-primary font-semibold text-sm">{t.author}</div>
-                  <div className="text-text-muted text-xs">{t.role}</div>
-                </div>
+        {/* Single real testimonial — centered */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1, ease }}
+          className="max-w-lg mx-auto"
+        >
+          <div className="glass-card rounded-2xl p-8 flex flex-col">
+            <Stars />
+            <blockquote className="text-text-secondary text-sm leading-relaxed flex-1 mb-6">
+              &ldquo;KorvaAI delivered a website that truly reflects the prestige of our brand.
+              The process was fast, professional, and the result exceeded our expectations.&rdquo;
+            </blockquote>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center flex-shrink-0">
+                <span className="text-primary-light text-xs font-bold">EM</span>
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <div>
+                <div className="text-text-primary font-semibold text-sm">Emballage</div>
+                <div className="text-text-muted text-xs">Jewellery Display Manufacturing, Dubai</div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Coming soon line */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.25, ease }}
+          className="mt-8 text-center text-text-muted text-sm italic"
+        >
+          More success stories coming soon.
+        </motion.p>
       </div>
     </section>
   )
