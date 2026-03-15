@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/sections/Hero'
 import HowItWorks from '@/components/sections/HowItWorks'
 import WhatWeDo from '@/components/sections/WhatWeDo'
+import Portfolio from '@/components/sections/Portfolio'
 import WhyUs from '@/components/sections/WhyUs'
 import Pricing from '@/components/sections/Pricing'
 import FinalCTA from '@/components/sections/FinalCTA'
@@ -29,6 +30,7 @@ export default function Home() {
       <Hero />
       <HowItWorks />
       <WhatWeDo />
+      <Portfolio />
       <WhyUs />
       <Pricing />
       <FinalCTA />
