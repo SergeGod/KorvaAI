@@ -227,7 +227,7 @@ function WebsiteBuilder() {
 export default function Hero() {
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#080808] px-6 pt-24 pb-16 dot-grid"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 pt-24 pb-16 dot-grid"
       aria-labelledby="hero-heading"
     >
       {/* Top gradient glow */}

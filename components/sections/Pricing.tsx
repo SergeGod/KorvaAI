@@ -68,7 +68,7 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className="relative py-28 px-6 bg-[#0a0a0a]"
+      className="relative py-28 px-6"
       aria-labelledby="pricing-heading"
     >
       <div aria-hidden="true" className="absolute top-0 inset-x-0 h-px bg-[#1a1a1a]" />

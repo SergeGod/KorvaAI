@@ -37,7 +37,7 @@ export default function WhatWeDo() {
   return (
     <section
       id="features"
-      className="relative py-28 px-6 bg-[#0a0a0a]"
+      className="relative py-28 px-6"
       aria-labelledby="features-heading"
     >
       {/* Top/bottom borders */}

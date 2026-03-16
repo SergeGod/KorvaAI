@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#080808] overflow-x-hidden">
+    <main className="relative z-[1] min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
       <HowItWorks />
